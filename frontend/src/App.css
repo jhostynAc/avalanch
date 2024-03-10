@@ -1,10 +1,26 @@
-.App {
+.App{
   display: flex;
   flex-direction: column;
-  place-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
+  justify-content: start;
+  height: 100vh;
+  width: 100vw;
+}
+body{
+  width: 100vw;
+}
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  width: inherit;
+  background-color: black;
+}
+.titulo-header{
+  margin: 10px;
 }
 button {
-  margin-top: 0.5em;
+  background-color: orange;
+  color: orange;
+  margin: 10px;
 }

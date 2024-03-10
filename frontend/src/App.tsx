@@ -2,6 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { formatBalance, formatChainAsNum } from "./utils";
 import detectEthereumProvider from "@metamask/detect-provider";
+import { Link } from "react-router-dom";
+import Landing_1 from "./componentes/landing_1";
 
 const App = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -82,15 +84,21 @@ const App = () => {
 
     return (
         <div className="App">
-            <div>
-                Injected Provider {hasProvider ? "DOES" : "DOES NOT"} Exist
-            </div>
 
-            {window.ethereum?.isMetaMask && wallet.accounts.length < 1 && (  /* Updated */
-                <button disabled={disableConnect} onClick={handleConnect}>
-                    Connect MetaMask
-                </button>
-            )}
+
+            <nav>
+                <h4 className="titulo-header">Blondi</h4>
+                <div className="recuadro">
+                    <div>
+                        {hasProvider ? <button disabled={disableConnect} onClick={handleConnect}>
+                            Connect MetaMask
+                        </button> :  <Link className="li" to={"/https://metamask.io/"}><button className="secondary" disabled={disableConnect} onClick={()=>{
+                           
+                        }}>No tienes MetaMask (Click para onstalar)</button></Link>}
+                    </div>
+                </div>
+
+            </nav>
 
             {wallet.accounts.length > 0 && (
                 <>
@@ -107,6 +115,7 @@ const App = () => {
                     <strong>Error:</strong> {errorMessage}
                 </div>
             )}
+            <Landing_1></Landing_1>
         </div>
     );
 };

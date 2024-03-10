@@ -1,0 +1,16 @@
+.primerParte{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+    height: 400px;
+}
+.texto{
+    background-color: aliceblue;
+}
+.imagen{
+    background-color: aqua;
+}

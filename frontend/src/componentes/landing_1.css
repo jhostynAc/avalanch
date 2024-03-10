@@ -6,11 +6,59 @@
     grid-row-gap: 20px;
     justify-items: stretch;
     align-items: stretch;
-    height: 400px;
+    padding: 30px 10px;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 39%);
 }
 .texto{
-    background-color: aliceblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.texto button{
+    color: red;
 }
 .imagen{
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+img{
+    height: 300px;
+    animation: flotar 2s ease-in-out infinite;
+}
+
+img .img2{
+    animation: flotar2 2s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%{
+        transform: translateY(10px);
+    }
+
+    50%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        transform: translateY(10px)
+    }
+}
+
+@keyframes flotar2 {
+    0%{
+        transform: translateY(-10px);
+    }
+
+    50%{
+        transform: translateY(10px);
+    }
+
+    100%{
+        transform: translateY(-10px)
+    }
 }

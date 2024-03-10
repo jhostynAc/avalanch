@@ -1,1 +1,17 @@
-/*Holi*/
+.landing_cursos {
+    display: grid;
+    height: 400px;
+    gap: 10px;
+}
+
+.titulo_jaime {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+    background-color: firebrick;
+}
+
+.curso_transaccion,.curso_compra,.curso_funcion{
+    grid-column: 1fr;
+    grid-row: 2;
+    background-color: blue;
+}

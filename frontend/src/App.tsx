@@ -4,6 +4,7 @@ import { formatBalance, formatChainAsNum } from "./utils";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { Link } from "react-router-dom";
 import Landing_1 from "./componentes/landing_1";
+import Landing_cursos from "./componentes/landing_cursos";
 
 const App = () => {
     const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -92,9 +93,9 @@ const App = () => {
                     <div>
                         {hasProvider ? <button disabled={disableConnect} onClick={handleConnect}>
                             Connect MetaMask
-                        </button> :  <Link className="li" to={"/https://metamask.io/"}><button className="secondary" disabled={disableConnect} onClick={()=>{
+                        </button> :  <Link className="li" target="blank" to={"https://metamask.io/"}><button className="secondary" disabled={disableConnect} onClick={()=>{
                            
-                        }}>No tienes MetaMask (Click para onstalar)</button></Link>}
+                        }}>No tienes MetaMask (Click para instalar)</button></Link>}
                     </div>
                 </div>
 
@@ -116,6 +117,8 @@ const App = () => {
                 </div>
             )}
             <Landing_1></Landing_1>
+            <br />
+            <Landing_cursos></Landing_cursos>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { formatBalance, formatChainAsNum } from "./utils";
 import detectEthereumProvider from "@metamask/detect-provider";
+import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
 import Landing_1 from "./componentes/landing_1";
 import Landing_cursos from "./componentes/landing_cursos";
@@ -90,30 +91,30 @@ const App = () => {
             <nav>
                 <h4 className="titulo-header">Blondi</h4>
                 <div className="recuadro">
-                    <div>
+                    {wallet.accounts.length > 0 ? (
+                        <>
+                            <div>Wallet Accounts: {wallet.accounts[0]}</div>
+                            <div>Wallet Balance: {wallet.balance}</div>
+                            <div>Hex ChainId: {wallet.chainId}</div>
+                            <div>
+                                Numeric ChainId: {formatChainAsNum(wallet.chainId)}
+                            </div>
+                        </>
+                    ) : <div>
                         {hasProvider ? <button disabled={disableConnect} onClick={handleConnect}>
                             Connect MetaMask
-                        </button> :  <Link className="li" target="blank" to={"https://metamask.io/"}><button className="secondary" disabled={disableConnect} onClick={()=>{
-                           
+                        </button> : <Link className="li" target="blank" to={"https://metamask.io/"}><button className="secondary" disabled={disableConnect} onClick={() => {
+
                         }}>No tienes MetaMask (Click para instalar)</button></Link>}
                     </div>
+                    }
                 </div>
 
             </nav>
-
-            {wallet.accounts.length > 0 && (
-                <>
-                    <div>Wallet Accounts: {wallet.accounts[0]}</div>
-                    <div>Wallet Balance: {wallet.balance}</div>
-                    <div>Hex ChainId: {wallet.chainId}</div>
-                    <div>
-                        Numeric ChainId: {formatChainAsNum(wallet.chainId)}
-                    </div>
-                </>
-            )}
+            
             {error && (  /* New code block */
                 <div onClick={() => setError(false)}>
-                    <strong>Error:</strong> {errorMessage}
+                    {errorMessage}
                 </div>
             )}
             <Landing_1></Landing_1>
